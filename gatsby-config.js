@@ -4,7 +4,7 @@ module.exports = {
     author: `Đào Minh Hải (Barrydevp)`,
     description: `Just my blogs :)`,
     birthday: `2000-01-29`,
-    siteUrl: ``,
+    siteUrl: `https://barrydevp-blog.netlify.com/`,
     social: {
       // twitter: `kylemathews`,
       // facebook: `Minh Hải` ,
