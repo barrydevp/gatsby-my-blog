@@ -24,15 +24,17 @@ const Bio = () => {
       site {
         siteMetadata {
           author
+          birthday
           social {
-            twitter
+            facebook
+            github
           }
         }
       }
     }
   `)
 
-  const { author, social } = data.site.siteMetadata
+  const { author, social, birthday } = data.site.siteMetadata
   return (
     <div
       style={{
@@ -54,11 +56,14 @@ const Bio = () => {
         }}
       />
       <p>
-        Written by <strong>{author}</strong> who lives and works in San
-        Francisco building useful things.
+      I'm <strong>{author}</strong> - <strong>{(new Date()).getFullYear() - (new Date(birthday)).getFullYear()}</strong> years old, student at University of Engineering & Technology.
         {` `}
-        <a href={`https://twitter.com/${social.twitter}`}>
-          You should follow him on Twitter
+        <a href={`${social.facebook}`}>
+          Follow my Facebook
+        </a>
+        {` `}
+        <a href={`${social.github}`}>
+          and my Git.
         </a>
       </p>
     </div>
