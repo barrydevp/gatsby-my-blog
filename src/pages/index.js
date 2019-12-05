@@ -1,10 +1,12 @@
 import React from "react"
 import { Link, graphql } from "gatsby"
 
+import { rhythm } from "../utils/typography"
+import { formatReadingTime } from "../utils/helpers"
+
 import Bio from "../components/bio"
 import Layout from "../components/layout"
 import SEO from "../components/seo"
-import { rhythm } from "../utils/typography"
 
 class BlogIndex extends React.Component {
   render() {
@@ -30,7 +32,10 @@ class BlogIndex extends React.Component {
                     {title}
                   </Link>
                 </h3>
-                <small>{node.frontmatter.date}</small>
+                <small>
+                  {node.frontmatter.date}
+                  {` • ${formatReadingTime(node.timeToRead)}`}
+                </small>
               </header>
               <section>
                 <p
@@ -63,6 +68,7 @@ export const pageQuery = graphql`
           fields {
             slug
           }
+          timeToRead
           frontmatter {
             date(formatString: "MMMM DD, YYYY")
             title
