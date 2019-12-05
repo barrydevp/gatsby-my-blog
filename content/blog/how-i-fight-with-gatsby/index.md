@@ -1,6 +1,6 @@
 ---
 title: Mình đã vật lộn với Gatsby như thế nào?
-date: "2015-05-06T23:46:37.121Z"
+date: "2019-12-05T20:46:37.121Z"
 ---
 
 # Mình đã chiến đầu với Gatsby ra sao :)
