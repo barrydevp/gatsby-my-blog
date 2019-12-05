@@ -10,7 +10,6 @@ exports.createPages = async ({ graphql, actions }) => {
       {
         allMarkdownRemark(
           sort: { fields: [frontmatter___date], order: DESC }
-          limit: 1000
         ) {
           edges {
             node {
@@ -22,6 +21,7 @@ exports.createPages = async ({ graphql, actions }) => {
               }
             }
           }
+          totalCount
         }
       }
     `
@@ -33,9 +33,25 @@ exports.createPages = async ({ graphql, actions }) => {
 
   // Create blog posts pages.
   const posts = result.data.allMarkdownRemark.edges
+  const totalCount = result.data.allMarkdownRemark.totalCount
+  const postsPerPage = 1
+  const numPages = Math.ceil(totalCount / postsPerPage)
+  
+  for(let i = 0; i < numPages; ++i) {
+    createPage({
+      path: i === 0 ? `/pages` : `/pages/${i + 1}`,
+      component: path.resolve("./src/templates/blog-list.js"),
+      context: {
+        limit: postsPerPage,
+        skip: i * postsPerPage,
+        numPages,
+        currentPage: i + 1,
+      },
+    })
+  }
 
   posts.forEach((post, index) => {
-    const previous = index === posts.length - 1 ? null : posts[index + 1].node
+    const previous = index === totalCount - 1 ? null : posts[index + 1].node
     const next = index === 0 ? null : posts[index - 1].node
 
     createPage({
