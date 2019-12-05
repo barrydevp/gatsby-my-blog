@@ -69,74 +69,75 @@ class Layout extends React.Component {
         </h3>
       )
     }
+
     return (
       <div
         style={{
-          marginLeft: `auto`,
-          marginRight: `auto`,
-          padding: `${rhythm(1.5)} ${rhythm(12)}`,
           color: 'var(--textNormal)',
           background: 'var(--bg)',
           transition: 'color 0.2s ease-out, background 0.2s ease-out',
           minHeight: '100vh',
         }}
-        // style={{
-        //   marginLeft: `auto`,
-        //   marginRight: `auto`,
-        //   maxWidth: rhythm(24),
-        //   padding: `${rhythm(1.5)} ${rhythm(3 / 4)}`,
-        // }}
       >
-        <header
+        <div
           style={{
-            display: 'flex',
-            justifyContent: 'space-between',
-            alignItems: 'center',
-            marginBottom: '2.625rem',
+            marginLeft: `auto`,
+            marginRight: `auto`,
+            maxWidth: rhythm(24),
+            padding: `${rhythm(1.5)} ${rhythm(3 / 4)}`,
           }}
         >
-          {header}
-          {this.state.theme !== null ? (
-            <Toggle
-              icons={{
-                checked: (
-                  <img
-                    src={moon}
-                    width="16"
-                    height="16"
-                    role="presentation"
-                    style={{ pointerEvents: 'none' }}
-                  />
-                ),
-                unchecked: (
-                  <img
-                    src={sun}
-                    width="16"
-                    height="16"
-                    role="presentation"
-                    style={{ pointerEvents: 'none' }}
-                  />
-                ),
-              }}
-              checked={this.state.theme === 'dark'}
-              onChange={e => {
-                console.log(e.target);
-                window.__setPreferredTheme(
-                  e.target.checked ? 'dark' : 'light'
-                )
-              }
-              }
-            />
-          ) : (
-              <div style={{ height: '24px' }} />
-            )}
-        </header>
-        <main>{children}</main>
-        <footer>
-          © {new Date().getFullYear()}, Built with
+          <header
+            style={{
+              display: 'flex',
+              justifyContent: 'space-between',
+              alignItems: 'center',
+              marginBottom: '2.625rem',
+            }}
+          >
+            {header}
+            {this.state.theme !== null ? (
+              <Toggle
+                icons={{
+                  checked: (
+                    <img
+                      src={moon}
+                      width="16"
+                      height="16"
+                      role="presentation"
+                      style={{ pointerEvents: 'none' }}
+                    />
+                  ),
+                  unchecked: (
+                    <img
+                      src={sun}
+                      width="16"
+                      height="16"
+                      role="presentation"
+                      style={{ pointerEvents: 'none' }}
+                    />
+                  ),
+                }}
+                checked={this.state.theme === 'dark'}
+                onChange={e => {
+                  console.log(e.target);
+                  window.__setPreferredTheme(
+                    e.target.checked ? 'dark' : 'light'
+                  )
+                }
+                }
+              />
+            ) : (
+                <div style={{ height: '24px' }} />
+              )}
+          </header>
+          <main>{children}</main>
+          <footer>
+            © {new Date().getFullYear()}, Built with
           {` `}
-          <a href="https://www.gatsbyjs.org">Gatsby</a>
-        </footer>
+            <a href="https://www.gatsbyjs.org">Gatsby</a>
+          </footer>
+        </div>
       </div>
     )
   }
