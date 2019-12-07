@@ -1,3 +1,8 @@
+---
+title: Cùng đi sâu vào quá trình react update state và props
+date: "2019-12-07T16:46:37.121Z"
+---
+
 # Lặn sâu vào update state and props trong react
 ##### Dựa trên sự giải thích của tác giả Maxim Koretskyi qua bài viết [In-depth explanation of state and props update in React](https://indepth.dev/in-depth-explanation-of-state-and-props-update-in-react/)
 
