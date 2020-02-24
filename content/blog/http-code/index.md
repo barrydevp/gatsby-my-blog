@@ -1,4 +1,5 @@
 ---
+status: private
 title: HTTP Code RESTful
 date: "2019-12-05T22:40:32.169Z"
 description: Some basic http code for REST API.

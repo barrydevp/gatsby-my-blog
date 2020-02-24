@@ -10,8 +10,8 @@ import Bio from "../components/bio"
 import Layout from "../components/layout"
 import SEO from "../components/seo"
 
-import 'antd/lib/spin/style/index.css';
-// import 'antd/lib/icon/style/index.css';
+import 'antd/lib/spin/style/index.css'
+// import 'antd/lib/icon/style/index.css'
 
 class BlogIndex extends React.Component {
   postsPerLoad = 5

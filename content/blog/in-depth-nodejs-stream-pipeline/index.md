@@ -1,11 +1,8 @@
 ---
-
+status: public
 title: Cách pipe Stream hoạt động trong Nodejs, khởi đầu cho việc custom Stream
-
 date: "2020-02-09T16:12:03.284Z"
-
 description: "Cơ chế hoạt động của Pipeline trong Nodejs Stream"
-
 ---
 
   

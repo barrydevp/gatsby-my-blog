@@ -1,4 +1,5 @@
 ---
+status: private
 title: How I Passed Coding Interviews at Facebook, Google, Lyft, Bloomberg
 date: "2019-12-05T22:40:32.169Z"
 description: How I Passed Coding Interviews at Facebook, Google, Lyft, Bloomberg.

@@ -1,4 +1,5 @@
 ---
+status: private
 title: Cùng đi sâu vào quá trình react update state và props
 date: "2019-12-07T16:46:37.121Z"
 description: Đi sâu vào quá trình react update state và props
