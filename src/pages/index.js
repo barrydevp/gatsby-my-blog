@@ -59,7 +59,7 @@ class BlogIndex extends React.Component {
 
     return (
       <Layout location={this.props.location} title={siteTitle}>
-        <SEO title="All posts" />
+        <SEO title="Barrydevp Blog" />
         <Bio />
         <InfiniteScroll
           // initialLoad={false}
@@ -67,7 +67,7 @@ class BlogIndex extends React.Component {
           loadMore={this.handleInfiniteOnLoad}
           hasMore={!this.state.loading && this.state.hasMore}
         >
-          {posts.map(({ node }) => {
+          {posts.filter(({node}) => (node.frontmatter && node.frontmatter.status === 'public')).map(({ node }) => {
             const title = node.frontmatter.title || node.fields.slug
             return (
               <article key={node.fields.slug}>
@@ -138,6 +138,7 @@ export const pageQuery = graphql`
             date(formatString: "MMMM DD, YYYY")
             title
             description
+            status
           }
         }
       }

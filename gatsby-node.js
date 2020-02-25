@@ -18,6 +18,7 @@ exports.createPages = async ({ graphql, actions }) => {
               }
               frontmatter {
                 title
+                status
               }
             }
           }
@@ -32,9 +33,10 @@ exports.createPages = async ({ graphql, actions }) => {
   }
 
   // Create blog posts pages.
-  const posts = result.data.allMarkdownRemark.edges
-  const totalCount = result.data.allMarkdownRemark.totalCount
-  const postsPerPage = 1
+  const posts = result.data.allMarkdownRemark.edges.filter(({node}) => (node.frontmatter && node.frontmatter.status === 'public'))
+  // const totalCount = result.data.allMarkdownRemark.totalCount
+  const totalCount = posts.length
+  const postsPerPage = 10
   const numPages = Math.ceil(totalCount / postsPerPage)
   
   for(let i = 0; i < numPages; ++i) {
