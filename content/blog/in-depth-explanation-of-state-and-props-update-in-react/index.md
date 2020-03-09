@@ -5,7 +5,7 @@ date: "2019-12-07T16:46:37.121Z"
 description: Đi sâu vào quá trình react update state và props
 ---
 
-# Lặn sâu vào update state and props trong react
+## Lặn sâu vào update state and props trong react
 ##### Dựa trên sự giải thích của tác giả Maxim Koretskyi qua bài viết [In-depth explanation of state and props update in React](https://indepth.dev/in-depth-explanation-of-state-and-props-update-in-react/)
 
 Trước tiên để hiểu được bài viết này bạn cần có một cái nhìn trực quan về thuật toán reconciliation mới của react thông qua bài viết trước đó cua mình.
@@ -375,6 +375,6 @@ function commitLifeCycles(finishedRoot, current, ...) {
 ```
 Tại đây nó đã gọi `componentDidUpdate`.
 
-# Kết thúc
+## Kết thúc
 Phù vậy là hoàn thành bài viết này, dựa trên bài viết gốc của tác giả [Maxim Koretskyi](https://indepth.dev/author/maxkoretskyi/), mình đã dịch lại và sử dụng những ngôn từ dễ hiểu hơn. Cảm ơn mọi người đã theo dõi!
 

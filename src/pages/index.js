@@ -14,7 +14,7 @@ import 'antd/lib/spin/style/index.css'
 // import 'antd/lib/icon/style/index.css'
 
 class BlogIndex extends React.Component {
-  postsPerLoad = 5
+  postsPerLoad = 10
 
   state = {
     loadCount: 1,
@@ -50,11 +50,10 @@ class BlogIndex extends React.Component {
     const { data } = this.props
     const siteTitle = data.site.siteMetadata.title
 
-    const posts = data.allMarkdownRemark.edges.slice(
+    const posts = data.allMarkdownRemark.edges.filter(({node}) => (node.frontmatter && node.frontmatter.status === 'public')).slice(
       0,
       this.postsPerLoad * this.state.loadCount
     )
-
     // const antdIcon = <Icon type="loading" style={{ fontSize: 24 }} spin />
 
     return (
@@ -67,7 +66,7 @@ class BlogIndex extends React.Component {
           loadMore={this.handleInfiniteOnLoad}
           hasMore={!this.state.loading && this.state.hasMore}
         >
-          {posts.filter(({node}) => (node.frontmatter && node.frontmatter.status === 'public')).map(({ node }) => {
+          {posts.map(({ node }) => {
             const title = node.frontmatter.title || node.fields.slug
             return (
               <article key={node.fields.slug}>

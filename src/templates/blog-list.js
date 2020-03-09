@@ -12,14 +12,14 @@ class BlogIndex extends React.Component {
   render() {
     const { data } = this.props
     const siteTitle = data.site.siteMetadata.title
-    const posts = data.allMarkdownRemark.edges
+    const posts = data.allMarkdownRemark.edges.filter(({node}) => (node.frontmatter && node.frontmatter.status === 'public'))
     const { numPages, currentPage } = this.props.pageContext
 
     return (
       <Layout location={this.props.location} title={siteTitle}>
         <SEO title="All posts" />
         <Bio />
-        {posts.filter(({node}) => (node.frontmatter && node.frontmatter.status === 'public')).map(({ node }) => {
+        {posts.map(({ node }) => {
           const title = node.frontmatter.title || node.fields.slug
           return (
             <article key={node.fields.slug}>
